@@ -17,7 +17,6 @@
   const vmRenderer = vm.renderer;
   const runtime = vm.runtime;
   const Cast = Scratch.Cast;
-  // @ts-ignore
 
   // Proxies
   // const cors_proxy = "https://api.codetabs.com/v1/proxy?quest="
