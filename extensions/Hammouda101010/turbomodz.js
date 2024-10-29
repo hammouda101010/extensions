@@ -113,6 +113,7 @@
   let mods = []; //Creates a List of Mods
   let isLoading = false; // Create isLoading Variable duh.
   let loadedMod = false;
+  let old_values = [] // This Stores all Old Sprites, Costumes 
 
   //Block & Argument Type Constants
   const BlockType = Scratch.BlockType;
@@ -715,7 +716,7 @@
               },
               FILE: {
                 type: ArgumentType.STRING,
-                defaultValue: ".twmod",
+                defaultValue: /t.*w/gi.test(Cast.toString(window.location.href)) ? ".twmod" : ".pmmod",
               },
             },
           },
@@ -732,7 +733,7 @@
               },
               FORMAT: {
                 type: ArgumentType.STRING,
-                defaultValue: ".twmod",
+                defaultValue: /t.*w/gi.test(Cast.toString(window.location.href)) ? ".twmod" : ".pmmod",
               },
             },
           },
@@ -831,16 +832,7 @@
               {text: Scratch.translate("high quality pen"), value: "high_quality_pen"},
               {text: Scratch.translate("fps"), value: "framerate"},
               {text: Scratch.translate("stage size"), value: "stage_size"},
-            ] /*runtime_values: {
-              turbo_mode: false,
-              interpolation: false,
-              remove_fencing: false,
-              remove_misc_limits: false,
-              high_quality_pen: false,
-              framerate: 30,
-              clone_limit: 300,
-              stage_size: "480x360",
-            }, */
+            ] 
           }
         },
       };
