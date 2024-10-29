@@ -1,7 +1,7 @@
 // Name: TurboModz
 // ID: hamturbomodz
 // Description: Implement Mods into Your Projects. Inspired by Asset Manager and Other Extensions.
-// By: Hammouda101010 <https://scratch.mit.edu/users/Hammouda101010/>
+// By: Hammouda101010 <https://github.com/hammouda101010>
 // License: MIT
 
 (function (Scratch) {
