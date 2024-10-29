@@ -113,7 +113,7 @@
   let mods = []; //Creates a List of Mods
   let isLoading = false; // Create isLoading Variable duh.
   let loadedMod = false;
-  let old_values = [] // This Stores all Old Sprites, Costumes 
+  let old_values = {} // This Stores all Old Sprites, Costumes 
 
   //Block & Argument Type Constants
   const BlockType = Scratch.BlockType;
@@ -301,7 +301,12 @@
 
       // Extract the name from the URL and set the new name
       const name = target.sprite.name; // Get the last part of the URL
+      const existingTarget = runtime.targets.find(t => !t.isStage && t.sprite && t.sprite.name === name);
 
+      if (existingTarget.sprite.name === name) {
+        old_values["old_sprites"].push(existingTarget)
+        vm.deleteSprite(existingTarget.id);
+      }
       // Change the target's name directly
       target.sprite.name = `Mod//${name}`;
 
@@ -505,7 +510,7 @@
           {
             opcode: "addImagetoMod",
             blockType: BlockType.COMMAND,
-            text: Scratch.translate("add image [URL] to mod:[MOD]"),
+            text: Scratch.translate("add image [URL] to sprite:[SPRITE] in mod:[MOD]"),
             arguments: {
               URL: {
                 type: ArgumentType.STRING,
@@ -520,7 +525,7 @@
           {
             opcode: "addCostumetoMod",
             blockType: BlockType.COMMAND,
-            text: Scratch.translate("add costume [COSTUME] to mod:[MOD]"),
+            text: Scratch.translate("add costume [COSTUME] to sprite:[SPRITE] in mod:[MOD]"),
             arguments: {
               COSTUME: {
                 type: ArgumentType.COSTUME,
@@ -535,7 +540,7 @@
           {
             opcode: "addSoundUrltoMod",
             blockType: BlockType.COMMAND,
-            text: Scratch.translate("add sound url [URL] to mod:[MOD]"),
+            text: Scratch.translate("add sound url [URL] to sprite:[SPRITE] in mod:[MOD]"),
             arguments: {
               URL: {
                 type: ArgumentType.STRING,
@@ -550,7 +555,7 @@
           {
             opcode: "addSoundtoMod",
             blockType: BlockType.COMMAND,
-            text: Scratch.translate("add sound [SOUND] to mod:[MOD]"),
+            text: Scratch.translate("add sound [SOUND] to sprite:[SPRITE] in mod:[MOD]"),
             arguments: {
               SOUND: {
                 type: ArgumentType.SOUND,
