@@ -183,7 +183,7 @@
     if (validatorFn(url)) {
       context.addModItem(modName, key, url); // Use the passed context
     } else {
-      console.error(errorMessage);
+      throw new Error(errorMessage);
     }
   };
 
@@ -244,7 +244,7 @@
         // Load the asset using the provided loadFunction
         await loadFunction(assetUrl);
       } catch (e) {
-        console.error(`Failed to load asset: ${e.message}`);
+        throw new Error(`Failed to load asset: ${e.message}`);
       }
     }
   };
@@ -307,7 +307,7 @@
 
       console.log(target);
     } catch (e) {
-      console.error("Failed to add sprite:", e.message);
+      throw new Error("Failed to add sprite:"+ e.message);
     }
   };
 
@@ -319,8 +319,7 @@
     const blob = await res.blob();
 
     if (!(typeIsBitmap(blob.type) || blob.type === "image/svg+xml")) {
-      console.error(`Invalid MIME type: ${blob.type}`);
-      return;
+      throw new Error(`Invalid MIME type: ${blob.type}`);
     }
     const assetType = typeIsBitmap(blob.type)
       ? runtime.storage.AssetType.ImageBitmap
@@ -359,7 +358,7 @@
         targetId
       );
     } catch (e) {
-      console.error(e);
+      throw new Error(e);
     }
   };
 
@@ -389,7 +388,7 @@
         targetId
       );
     } catch (e) {
-      console.error(e);
+      throw new Error(e);
     }
   };
   // End of Asset Manager Scripts
@@ -864,11 +863,9 @@
       if (!search) {
         switch (name) {
           case "no mods yet!":
-            console.error("There is No Existing Mod. Create or Import a Mod First");
-            return "There is No Existing Mod. Create or Import a Mod First";
+            throw new Error("There is No Existing Mod. Create or Import a Mod First");
           default:
-            console.error(`Could Not Find "${name}"`);
-            return `Could Not Find "${name}"`; 
+            throw new Error(`Could Not Find "${name}"`);
           }
       } else {
         return search;
@@ -1175,8 +1172,7 @@
       let mod_JSON = await readFile(args.FORMAT)
         .then((result) => result)
         .catch((error) => {
-          console.error("Error during file reading:", error);
-          return null;
+          throw new Error("Error during file reading:" + error);
         });
 
       if (!mod_JSON) {
@@ -1190,9 +1186,7 @@
         mod_JSON = JSON.parse(Cast.toString(mod_JSON));
         mods.push(mod_JSON);
       } catch (error) {
-        console.error(
-          `Invalid mod file format. Please provide a valid mod file with the "${args.FORMAT}" extension.`
-        );
+        throw new Error(`Invalid mod file format. Please provide a valid mod file with the "${args.FORMAT}" extension.`)
       }
     }
   }
