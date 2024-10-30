@@ -19,7 +19,7 @@
   const Cast = Scratch.Cast;
 
   // Proxies
-  // const cors_proxy = "https://api.codetabs.com/v1/proxy?quest="
+  const cors_proxy = "https://corsproxy.io/?"
 
   // Credits to Runtime Values
   const TURBO_MODE = "turbo mode";
@@ -113,7 +113,12 @@
   let mods = []; //Creates a List of Mods
   let isLoading = false; // Create isLoading Variable duh.
   let loadedMod = false;
-  let old_values = {} // This Stores all Old Sprites, Costumes 
+  let old_values = {
+    old_sprites:[],
+    old_costumes:[],
+    old_sounds:[],
+    old_runtime_vals:{}
+  } // This Stores all Old Sprites, Costumes 
 
   //Block & Argument Type Constants
   const BlockType = Scratch.BlockType;
@@ -132,6 +137,28 @@
     }
     return result;
   };
+
+  const fetchWithCORSProxy = async (url) => {
+    const isDataURL = (url) => { const pattern = /^data:[\w+-]+\/[\w+-]+(;[\w=+-]+)*,.*$/; return pattern.test(url); }
+    try{
+      // Imports File by Default with the proxy, unless its a data url
+      if (!isDataURL(url)){
+        const response = await Scratch.fetch(cors_proxy + encodeURIComponent(Cast.toString(url)));
+        if (!response.ok) throw new Error('CORS proxy request failed');
+        return response;
+      }
+      else{
+        const response = await Scratch.fetch(Cast.toString(url));
+        return response;
+      }
+    }
+    catch (error) {
+      // it it breaks, use the regular link
+      console.warn("CORS proxy request failed. Using Regular Link...", error)
+      const response = await Scratch.fetch(url);
+      return response;
+    }
+  }
 
   // Function That Reads Files
   const readFile = (acceptedFormats) => {
@@ -286,41 +313,43 @@
   };
 
   const addSprite = async (spriteUrl, util) => {
-    const url = spriteUrl
-
     try {
-      const response = await Scratch.fetch(url);
+      const response = await fetchWithCORSProxy(spriteUrl);
       const arrayBuffer = await response.arrayBuffer();
-
-      // Add the sprite to the project
-
+  
       await vm.addSprite(arrayBuffer);
-
+  
       // Get the loaded sprite's target
-      const target = runtime.targets[runtime.targets.length - 1]; // Last added sprite
-
-      // Extract the name from the URL and set the new name
-      const name = target.sprite.name; // Get the last part of the URL
-      const existingTarget = runtime.targets.find(t => !t.isStage && t.sprite && t.sprite.name === name);
-
-      if (existingTarget.sprite.name === name) {
-        old_values["old_sprites"].push(existingTarget)
+      const target = runtime.targets[runtime.targets.length - 1];
+  
+      // Check if a sprite with the same name exists and delete it if so
+      const existingTarget = runtime.targets.find(
+        (t) => !t.isStage && t.sprite.name === target.sprite.name
+      );
+  
+      if (existingTarget) {
+        if (!old_values["old_sprites"]) {
+          old_values["old_sprites"] = [];
+        }
+        old_values["old_sprites"].push(existingTarget);
         vm.deleteSprite(existingTarget.id);
       }
-      // Change the target's name directly
-      target.sprite.name = `Mod//${name}`;
-
-      console.log(target);
+  
+      // Change the target's name
+      target.sprite.name = `Mod//${target.sprite.name}`;
+  
+      console.log("Sprite added:", runtime.targets[runtime.targets.length - 1]);
     } catch (e) {
-      throw new Error("Failed to add sprite:"+ e.message);
+      throw new Error("Failed to add sprite: " + e.message);
     }
   };
+  
 
   const addCostume = async (url, name, util) => {
     const targetId = util.target.id;
     const assetName = Cast.toString(name);
 
-    const res = await Scratch.fetch(url);
+    const res = await fetchWithCORSProxy(url);
     const blob = await res.blob();
 
     if (!(typeIsBitmap(blob.type) || blob.type === "image/svg+xml")) {
@@ -371,7 +400,7 @@
     const targetId = util.target.id;
     const assetName = Cast.toString(name);
 
-    const res = await Scratch.fetch(url);
+    const res = await fetchWithCORSProxy(url);
     const buffer = await res.arrayBuffer();
 
     const storage = runtime.storage;
