@@ -9,6 +9,9 @@
    id="svg1"
    sodipodi:docname="turbomodz.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="..\..\..\Downloads\turbomodz.png"
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,9 +26,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.5878907"
-     inkscape:cx="199.32102"
-     inkscape:cy="286.85853"
+     inkscape:zoom="0.79394535"
+     inkscape:cx="611.50305"
+     inkscape:cy="218.52889"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -35,28 +38,28 @@
   <defs
      id="defs1">
     <linearGradient
-       id="linearGradient3"
+       id="linearGradient4"
        inkscape:collect="always">
       <stop
-         style="stop-color:#ff9393;stop-opacity:1;"
+         style="stop-color:#fd939e;stop-opacity:1;"
          offset="0"
-         id="stop3" />
-      <stop
-         style="stop-color:#ee90ff;stop-opacity:1;"
-         offset="1"
          id="stop4" />
+      <stop
+         style="stop-color:#ee90ff;stop-opacity:1"
+         offset="1"
+         id="stop5" />
     </linearGradient>
     <linearGradient
-       id="linearGradient1"
+       id="linearGradient2"
        inkscape:collect="always">
       <stop
-         style="stop-color:#000000;stop-opacity:1;"
+         style="stop-color:#020001;stop-opacity:1;"
          offset="0"
-         id="stop1" />
-      <stop
-         style="stop-color:#e8596f;stop-opacity:0.2;"
-         offset="1"
          id="stop2" />
+      <stop
+         style="stop-color:#1a31a3;stop-opacity:0;"
+         offset="1"
+         id="stop3" />
     </linearGradient>
     <pattern
        inkscape:collect="always"
@@ -160,42 +163,43 @@
        gradientTransform="translate(0,-35.718751)" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1"
-       id="linearGradient2"
-       x1="78.713524"
-       y1="72.758499"
-       x2="123.34713"
-       y2="72.758496"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.77477711,0,0,0.87746291,23.15838,5.161524)" />
+       xlink:href="#linearGradient2"
+       id="linearGradient3"
+       x1="99.575653"
+       y1="66.0355"
+       x2="99.783607"
+       y2="88.276665"
+       gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3"
-       id="linearGradient4"
-       x1="100.99873"
-       y1="50.477764"
-       x2="101.33093"
-       y2="104.4403"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.77477711,0,0,0.87746291,23.15838,5.161524)" />
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="99.575653"
+       y1="66.0355"
+       x2="99.783607"
+       y2="88.276665"
+       gradientUnits="userSpaceOnUse" />
   </defs>
-  <rect
-     style="fill:url(#linearGradient17);fill-rule:evenodd;stroke:#b11c1c;stroke-width:0.456999;stroke-linejoin:bevel;paint-order:fill markers stroke"
-     id="rect1-6"
-     width="338.66666"
-     height="169.33333"
-     x="0.2284995"
-     y="0.2284995" />
-  <rect
-     style="fill:url(#pattern1);fill-rule:evenodd;stroke:#b11c1c;stroke-width:0.456999;stroke-linejoin:bevel;paint-order:fill markers stroke;fill-opacity:1;opacity:0.52116402"
-     id="rect1"
-     width="338.66666"
-     height="169.33333"
-     x="0.2284995"
-     y="0.2284995" />
+  <g
+     id="g5">
+    <rect
+       style="fill:url(#linearGradient17);fill-rule:evenodd;stroke:#b11c1c;stroke-width:0.456999;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect1-6"
+       width="338.66666"
+       height="169.33333"
+       x="0.2284995"
+       y="0.2284995" />
+    <rect
+       style="fill:url(#pattern1);fill-rule:evenodd;stroke:#b11c1c;stroke-width:0.456999;stroke-linejoin:bevel;paint-order:fill markers stroke;fill-opacity:1;opacity:0.52116402"
+       id="rect1"
+       width="338.66666"
+       height="169.33333"
+       x="0.2284995"
+       y="0.2284995" />
+  </g>
   <g
      id="g103"
-     transform="matrix(8.8116001,0,0,8.9930802,-7.452334,-26.208407)">
+     transform="matrix(10.112694,0,0,10.320971,-17.501784,-46.089751)">
     <path
        d="m 2.8728575,6.4600656 v 2.5135416 h 2.1978157 v 3.8464988 l 2.4424304,0.0072 V 8.9736072 h 2.206881 V 6.4600656 H 6.296421 Z"
        style="fill:url(#linearGradient87);fill-rule:evenodd;stroke:url(#linearGradient93);stroke-width:0.543286;stroke-linejoin:round;stroke-opacity:1;paint-order:fill markers stroke"
@@ -267,11 +271,6 @@
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke-width:9.38218;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
        d="m 69.054972,65.17821 17.765985,0.115266 7.299293,15.287823 -6.775431,1.947366 6.656275,15.56187 -21.58716,-17.44835 8.39432,-0.228031 z" />
   </g>
-  <path
-     id="path1"
-     style="fill:url(#linearGradient4);fill-rule:evenodd;stroke:url(#linearGradient2);stroke-width:4.13819;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
-     d="m 117.47359,52.723623 c 0,4.946287 9.11354,18.396398 5.74036,26.358146 -2.60372,6.145576 -6.794,15.570971 -10.42478,15.570979 -1.13151,0 -17.948303,0.08976 -19.980612,-1.068259 -6.607038,-3.764742 -9.020472,-5.667378 -10.723033,-8.948365 -3.813467,-7.348898 2.2849,-28.237761 2.2849,-32.946347 0,-4.412904 2.927656,3.192874 10.766567,4.086272 l 1.20919,24.485143 11.900858,-0.117702 1.93592,-24.736028 c 5.1634,-0.405674 7.29063,-6.788018 7.29063,-2.683839 z"
-     sodipodi:nodetypes="csssscccccc" />
   <circle
      id="path6"
      style="fill:#572e9f;stroke:none;stroke-width:0.264583"
@@ -284,9 +283,16 @@
      cx="145.62816"
      cy="58.439777"
      r="0" />
-  <path
-     id="path8"
-     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#f7f4fc;stroke-width:0;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
-     d="m 88.521727,57.533443 c -3.883098,6.8413 -4.230725,15.134896 -1.075383,26.04285 l 6.870611,5.937737 16.704685,0.547653 5.38676,-6.879164 c 3.14366,-7.555321 5.67149,-15.260457 -1.94407,-23.976826 l -0.82476,3.888129 C 111.7516,80.239589 117.29199,83.809184 102.85095,84.483978 87.30841,85.210243 89.750733,66.816686 88.521727,57.533443 Z"
-     sodipodi:nodetypes="cccccccsc" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:'Liberation Sans Narrow';-inkscape-font-specification:'Liberation Sans Narrow';white-space:pre;inline-size:69.3232;fill:url(#linearGradient5);fill-rule:evenodd;stroke:url(#linearGradient3);stroke-width:0.78462;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:fill markers stroke"
+     x="74.315048"
+     y="82.31308"
+     id="text2"
+     transform="matrix(3.3717452,0,0,2.986784,-189.29602,-164.50757)"><tspan
+       x="74.315048"
+       y="82.31308"
+       id="tspan3"><tspan
+         style="font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, '"
+         id="tspan1">URBOMODZ</tspan></tspan></text>
 </svg>
