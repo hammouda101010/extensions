@@ -314,35 +314,33 @@
 
   const addSprite = async (spriteUrl, util) => {
     try {
-      const response = await fetchWithCORSProxy(spriteUrl);
-      const arrayBuffer = await response.arrayBuffer();
-  
-      await vm.addSprite(arrayBuffer);
-  
-      // Get the loaded sprite's target
-      const target = runtime.targets[runtime.targets.length - 1];
-  
-      // Check if a sprite with the same name exists and delete it if so
-      const existingTarget = runtime.targets.find(
-        (t) => !t.isStage && t.sprite.name === target.sprite.name
-      );
-  
-      if (existingTarget) {
-        if (!old_values["old_sprites"]) {
-          old_values["old_sprites"] = [];
+        const url = Cast.toString(spriteUrl)
+        const response = await fetchWithCORSProxy(spriteUrl);
+        const arrayBuffer = await response.arrayBuffer();
+
+        
+        // Check if a sprite with the same name exists and delete it if so
+        const existingTarget = runtime.targets.find(
+            (t) => !t.isStage && t.sprite.name === url.split('/').pop().replace('.sprite3', '')
+        );
+
+        if (existingTarget) {
+            old_values.old_sprites.push(existingTarget);
+            vm.deleteSprite(existingTarget.id);
         }
-        old_values["old_sprites"].push(existingTarget);
-        vm.deleteSprite(existingTarget.id);
-      }
-  
-      // Change the target's name
-      target.sprite.name = `Mod//${target.sprite.name}`;
-  
-      console.log("Sprite added:", runtime.targets[runtime.targets.length - 1]);
+
+        // Add the new sprite directly from the array buffer
+        await vm.addSprite(arrayBuffer);
+        const target = runtime.targets[runtime.targets.length - 1];
+        target.sprite.name = `Mod//${target.sprite.name}`;
+
+        console.log("Sprite added:", target);
     } catch (e) {
-      throw new Error("Failed to add sprite: " + e.message);
+        throw new Error("Failed to add sprite: " + e.message);
     }
-  };
+};
+
+
   
 
   const addCostume = async (url, name, util) => {
